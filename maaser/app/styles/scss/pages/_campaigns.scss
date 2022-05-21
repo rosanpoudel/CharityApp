@@ -1,0 +1,32 @@
+.section-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.campaigns-subcampaigns {
+  padding-left: 0;
+  .empty-table {
+    top: 50%;
+  }
+}
+.campaigns-wrapper {
+  margin-bottom: 60px;
+  padding: 10px 0 0 25px;
+  .campaign-card {
+    .table-dropdown.action {
+      padding: 0;
+      .dropdown {
+        width: 100px;
+        right: -74px;
+        top: 0;
+        padding-top: 26px;
+        box-shadow: none;
+        .dropdown-link {
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          padding: 4px 10px;
+        }
+      }
+    }
+  }
+}

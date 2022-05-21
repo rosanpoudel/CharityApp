@@ -1,0 +1,60 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "AuthProto";
+option java_generate_equals_and_hash = true;
+
+import "treeleaf.proto";
+import "maaser.proto";
+import "account.proto";
+import "permission.proto";
+
+message Session {
+  string sessionId = 1;
+  string accountId = 2;
+  treeleaf.protos.ClientDetail clientDetail = 3;
+  int64 timestamp = 4;
+  bool active = 5;
+  string pushToken = 6;
+  AccountType accountType = 7;
+  string loginId = 8;
+  User user = 9;
+  Client client = 10;
+  Employee employee = 11;
+  repeated Permission permissions = 12;
+}
+
+message LoginRequest {
+  string emailPhone = 1;
+  string password = 2;
+  treeleaf.protos.ClientDetail clientDetail = 3;
+  AccountType accountType = 4;
+  string pushToken = 5;
+}
+
+message Authorization {
+  string token = 1;
+  string permission = 2;
+  string ip = 3;
+  string user = 4;
+}
+
+message AuthResponse {
+  bool granted = 1;
+  Session session = 2;
+}
+
+message LoginResponse {
+  string token = 1; //JWT token
+  LoginAccount loginAccount = 2;
+}
+
+message Jwt {
+  string signatureSecret = 1;
+  Session session = 2;
+}
+
+message JwtLit {
+  repeated Jwt jwts = 1;
+}

@@ -1,0 +1,32 @@
+.all-campaigns-page {
+  .empty-table {
+    top: 50%;
+  }
+}
+
+// on dashboard
+.all-campaigns-list {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #c4c4c4;
+  .section-title {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  .see-more {
+    text-align: right;
+    padding-right: 0px;
+    margin: 0px 0 12px 0;
+
+    a {
+      color: #0bb3f3;
+      display: inline-block;
+      font-weight: 400;
+    }
+  }
+  &.campaign-slider {
+    .campaign-card {
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+/*
+ *
+ * DonateNow constants
+ *
+ */
+
+export const DEFAULT_ACTION = 'app/DonateNow/DEFAULT_ACTION';
+
+export const DONATE_NOW_ACTIONS = {
+  // donate now
+  SET_DONATION_RECEIVER_NAME: 'app/DonateNow/SET_DONATION_RECEIVER_NAME',
+  SET_DONATION_RECEIVER_ID: 'app/DonateNow/SET_DONATION_RECEIVER_ID',
+  SET_DONATION_AMOUNT: 'app/DonateNow/SET_DONATION_AMOUNT',
+  DONATE: 'app/DonateNow/DONATE',
+  // schedule
+  SET_SCHEDULE_RECEIVER_NAME: 'app/DonateNow/SET_SCHEDULE_RECEIVER_NAME',
+  SET_SCHEDULE_RECEIVER_ID: 'app/DonateNow/SET_SCHEDULE_RECEIVER_ID',
+  SET_SCHEDULE_AMOUNT: 'app/DonateNow/SET_SCHEDULE_AMOUNT',
+  SET_SCHEDULE_TYPE: 'app/DonateNow/SET_SCHEDULE_TYPE',
+  SET_START_DATE: 'app/DonateNow/SET_START_DATE',
+  SET_END_DATE: 'app/DonateNow/SET_END_DATE',
+  SCHEDULE: 'app/DonateNow/SCHEDULE',
+  SET_SCHEDULE_STATUS: 'app/DonateNow/SET_SCHEDULE_STATUS',
+
+  // remarks
+  SET_REMARKS: 'app/DonateNow/SET_REMARKS',
+
+  SET_LOADING: 'app/DonateNow/SET_LOADING',
+  SET_SUCCESS_STATUS: 'app/DonateNow/SET_SUCCESS_STATUS',
+
+  // clear form data
+  CLEAR_FORM_DATA: 'app/DonateNow/CLEAR_FORM_DATA',
+};

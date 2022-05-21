@@ -1,0 +1,72 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "CampaignProto";
+
+import "account.proto";
+import "treeleaf.proto";
+
+
+message Campaign{
+    enum BeneficiaryType{
+      UNKNOWN_BENEFICIARY = 0;
+      MYSELF = 1;
+      OTHERS = 2;
+    }
+    string campaignId = 1;
+    int64 targetAmount = 2;
+    string countryCode = 3;
+    string title = 4;
+    BeneficiaryType beneficiaryType = 5;
+    string beneficiaryAccountId = 6;
+    string category = 7;
+    string description = 8;
+    int64 collectedAmount = 9;
+    string thumbnailUrl = 10; //cover photo or video
+    string accountId = 11; //campaign starter 
+    bool allowSubCampaign = 12;
+    repeated SubCampaign subCampaigns = 13;
+    CampaignStatus campaignStatus = 14;
+    Client campaignStarter = 15;
+    Client campaignBeneficiary = 16;
+    int64 createdAt = 17;
+    int64 updatedAt = 18;
+}
+
+enum CampaignStatus{
+  UNKNOWN_CAMPAIGN_STATUS = 0;
+  OPEN = 1;
+  CLOSED = 2;
+  DISABLED_CAMPAIGN = 3;
+}
+
+message SubCampaign{
+  string subCampaignId = 1;
+  int64 targetAmount = 2;
+  int64 collectedAmount = 3;
+  string campaignId = 4; 
+  string accountId = 5; //sub campaign starter 
+  Campaign campaign = 6;
+  CampaignStatus subCampaignStatus = 7;
+  Client subCampaignStarter = 8;
+  int64 createdAt = 9; 
+  int64 updatedAt = 10;
+}
+
+message CampaignFilter{
+  treeleaf.protos.DataQuery dataQuery = 1;
+  CampaignStatus campaignStatus = 2;
+  string countryCode = 3;
+}
+
+message Comment{
+  string commentId = 1;
+  string description = 2;
+  string refId = 3;  //campaignId
+  string addedBy = 4;
+  string fullName = 5;
+  string profilePicture = 6;
+  int64 createdAt = 7;
+  int64 updatedAt = 8;
+}

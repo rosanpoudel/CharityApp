@@ -1,0 +1,108 @@
+syntax = "proto3";
+package brilltech.maaser.rpc;
+
+option java_package = "com.brilltech.maaser.rpc";
+option java_outer_classname = "PaymentRpcProto";
+
+import "treeleaf.proto";
+import "payment.proto";
+import "auth.proto";
+
+message PaymentBaseRequest{
+  string refId = 1;
+  string stringValue = 2;
+  repeated string stringValues = 3;
+  int32 intValue = 4;
+  int64 longValue = 5;
+  bool boolValue = 6;
+  bool doubleValue = 7;
+  treeleaf.protos.Debug debug = 8;
+  brilltech.maaser.entities.Authorization authorization = 9;
+  brilltech.maaser.entities.Card card = 10;
+  brilltech.maaser.entities.Bank bank = 11;
+  brilltech.maaser.entities.Transaction transaction = 12;
+  brilltech.maaser.entities.Transaction balance = 13;
+  treeleaf.protos.DataQuery dataQuery = 14;
+  brilltech.maaser.entities.ScheduleTransaction scheduleTransaction = 15;
+  brilltech.maaser.entities.TransactionFilter transactionFilter = 16;
+  brilltech.maaser.entities.TransactionExportRequest transactionExportRequest = 17;
+}
+
+message PaymentBaseResponse{
+  bool error = 1;
+  string msg = 2;
+  treeleaf.protos.ErrorCode errorCode = 3;
+  bool success = 4;
+  int64 timestamp = 5;
+  treeleaf.protos.Debug debug = 6;
+  brilltech.maaser.entities.Card card = 7;
+  repeated brilltech.maaser.entities.Card cards = 8;
+  brilltech.maaser.entities.Bank bank = 9;
+  repeated brilltech.maaser.entities.Bank banks = 10;
+  brilltech.maaser.entities.Transaction transaction = 11;
+  repeated brilltech.maaser.entities.Transaction transactions = 12;
+  brilltech.maaser.entities.Balance balance = 13;
+  brilltech.maaser.entities.ScheduleTransaction scheduleTransaction = 14;
+  repeated brilltech.maaser.entities.ScheduleTransaction scheduleTransactions = 15;
+  repeated brilltech.maaser.entities.CampaignDonation donations = 16;
+}
+
+service PaymentRpc{
+  //input: Authorization, Account; Output: PaymentBaseResponse
+  rpc addBank(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, Account; Output: PaymentBaseResponse
+  rpc updateBank(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, Account; Output: PaymentBaseResponse
+  rpc getBankByClientId(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+  //input: Authorization, Card; Output: PaymentBaseResponse
+  rpc addCard(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, Card; Output: PaymentBaseResponse
+  rpc updateCard(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization; Output: PaymentBaseResponse
+  rpc getAllCard(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, refId; Output: PaymentBaseResponse
+  rpc getCardByCustomerId(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, refId; Output: PaymentBaseResponse
+  rpc setToDefault(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, refId; Output: PaymentBaseResponse
+  rpc deleteCard(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+  //input: Authorization, Account; Output: PaymentBaseResponse
+  rpc addTransaction(PaymentBaseRequest) returns(PaymentBaseResponse){};
+  //input: Authorization, accountId; Output: PaymentBaseResponse
+  rpc getTransactionByAccountId(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input Transaction, Output: PaymentBaseResponse
+  rpc updateTransactionStatus(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, transactionId; Output: PaymentBaseResponse
+  rpc getTransactionById(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+  //input accountId, Output: Balance, PaymentBaseResponse
+  rpc getBalanceByAccountId (PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+  //input: Authorization, ScheduleTransaction; Output: PaymentBaseResponse
+  rpc addScheduleTransaction(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, ScheduleTransaction; Output: PaymentBaseResponse
+  rpc updateScheduleTransaction(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, scheduleTransactionId, scheduleTransactionStatus; Output: PaymentBaseResponse
+  rpc updateScheduleTransactionStatus(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization; Output: PaymentBaseResponse
+  rpc getScheduleTransactionsByAccountId(PaymentBaseRequest) returns (PaymentBaseResponse){};
+  //input: Authorization, scheduleTransactionId; Output: PaymentBaseResponse
+  rpc getScheduleTransactionById(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+  //input: Authorization; Output: PaymentBaseResponse
+  rpc getAllUpcomingTxn(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+
+   //input: Authorization, transactionId; Output: PaymentBaseResponse
+   rpc generateAchTxnFile(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+   //input Authorization,campaignId/subCampaignId; Output: PaymentBaseResponse
+   rpc getCampaignDonationsById(PaymentBaseRequest) returns (PaymentBaseResponse){};
+
+   //input: Authorization,TransactionExportRequest; Output: PaymentBaseResponse
+   rpc generateTxnReceipt(PaymentBaseRequest) returns (PaymentBaseResponse){};
+   //input: Authorization,TransactionExportRequest; Output: PaymentBaseResponse
+   rpc generateTransactionReport(PaymentBaseRequest) returns (PaymentBaseResponse){};
+}

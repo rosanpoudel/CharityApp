@@ -1,0 +1,29 @@
+steps:
+ 
+  - name: gcr.io/cloud-builders/git
+    args: ['clone', '-b', 'dev', '--single-branch', 'https://mmallad:${_GIT_TOKEN_}@github.com/brilltech-com/maaser_frontend.git']
+
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/maaserfrontend:${BRANCH_NAME}", "."]
+    
+
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/maaserfrontend"]
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "maaser-frontend",
+        "--image",
+        "gcr.io/$PROJECT_ID/maaserfrontend:${BRANCH_NAME}",
+        "--region",
+        "us-west1",
+        "--platform",
+        "managed",
+        "--allow-unauthenticated",
+      ]
+timeout: 1500s
+substitutions:
+  _TAG: 'v1.0.0'

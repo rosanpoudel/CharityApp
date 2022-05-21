@@ -1,0 +1,16 @@
+.date-time {
+  .ant-picker {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #767676;
+    padding-left: 0;
+    padding-right: 0;
+    .ant-picker-suffix {
+      color: $primary;
+    }
+  }
+}
+
+.ant-picker-focused {
+  box-shadow: none !important;
+}

@@ -1,0 +1,22 @@
+.credentials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+  .remember-me {
+    display: flex;
+    align-items: center;
+    color: $light;
+    font-size: 16px;
+    input {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+  }
+  .forgot-password {
+    a {
+      color: $primary;
+    }
+  }
+}

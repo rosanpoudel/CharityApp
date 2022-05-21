@@ -1,0 +1,21 @@
+.transaction-detail-container {
+  position: relative;
+  .download-recipt {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+  }
+  .date {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .detail-row {
+    margin-bottom: 18px;
+    .detail-title {
+      color: #333333;
+      line-height: 21.79px;
+      margin: 0;
+    }
+  }
+}

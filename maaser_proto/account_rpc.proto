@@ -1,0 +1,96 @@
+syntax = "proto3";
+package brilltech.maaser.rpc;
+
+option java_package = "com.brilltech.maaser.rpc";
+option java_outer_classname = "AccountRpcProto";
+option java_generate_equals_and_hash = true;
+
+import "treeleaf.proto";
+import "account.proto";
+import "auth.proto";
+
+message AccountBaseRequest {
+  string refId = 1;
+  string stringValue = 2;
+  repeated string stringValues = 3;
+  int32 intValue = 4;
+  int64 longValue = 5;
+  bool boolValue = 6;
+  bool doubleValue = 7;
+  string userId = 8;
+  treeleaf.protos.Debug debug = 9;
+  treeleaf.protos.DataQuery dataQuery = 10;
+  brilltech.maaser.entities.Authorization authorization = 11;
+  brilltech.maaser.entities.AccountVerification accountVerification = 12;
+  brilltech.maaser.entities.PasswordChangeRequest passwordChangeRequest = 13;
+  brilltech.maaser.entities.PasswordReset passwordReset = 14;
+  brilltech.maaser.entities.User user = 15;
+  brilltech.maaser.entities.Client client = 16;
+  brilltech.maaser.entities.Employee employee = 17;
+  brilltech.maaser.entities.Account account = 18;
+  brilltech.maaser.entities.ClientFilter clientFilterRequest = 19;
+}
+
+message AccountBaseResponse {
+  bool error = 1;
+  string msg = 2;
+  treeleaf.protos.ErrorCode errorCode = 3;
+  bool success = 4;
+  int64 timestamp = 5;
+  treeleaf.protos.Debug debug = 6;
+  string refId = 7;
+  brilltech.maaser.entities.LoginAccount loginAccount = 8;
+  brilltech.maaser.entities.User user = 9;
+  repeated brilltech.maaser.entities.User users = 10;
+  brilltech.maaser.entities.Client client = 11;
+  repeated  brilltech.maaser.entities.Client clients = 12;
+  brilltech.maaser.entities.Employee employee = 13;
+  repeated brilltech.maaser.entities.Employee employees = 14;
+}
+
+service AccountRpc {
+  //input: Authorization, Account; Output: AccountBaseResponse
+  rpc verifyAccount(AccountBaseRequest) returns (AccountBaseResponse){}; //should verify phone, email and kyc
+  //input: Authorization, Account; Output: AccountBaseResponse
+  rpc updateAccount(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, accountStatus; Output: AccountBaseResponse
+  rpc updateAccountStatus(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, accountId; Output: AccountBaseResponse
+  rpc getAccountById(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, accountId; Output: AccountBaseResponse
+  rpc deleteAccount(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: AccountType, Output: AccountBaseResponse
+  rpc filterClients(AccountBaseRequest) returns (AccountBaseResponse){};
+
+  //input: Authorization, code, emailPhone; Output: AccountBaseResponse
+  rpc requestPasswordReset(AccountBaseRequest) returns (AccountBaseResponse){}; //send reset code in emailPhone
+  //input: Authorization, accountId, code; Output: AccountBaseResponse
+  rpc checkVerificationCode(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, Account; Output: AccountBaseResponse
+  rpc resetAccountPassword(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, Account; Output: AccountBaseResponse
+  rpc updateAccountPassword(AccountBaseRequest) returns (AccountBaseResponse){};
+
+  //input: Authorization, User; Output: AccountBaseResponse
+  rpc addUser(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, User; Output: AccountBaseResponse
+  rpc updateUser(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, User; Output: AccountBaseResponse
+  rpc getAllUser(AccountBaseRequest) returns (AccountBaseResponse){};
+
+  //input: Authorization, Client; Output: AccountBaseResponse
+  rpc registerClient(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, Client; Output: AccountBaseResponse
+  rpc updateClient(AccountBaseRequest) returns (AccountBaseResponse){};
+
+  //input: Authorization, Employee; Output: AccountBaseResponse
+  rpc addEmployee(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, Employee; Output: AccountBaseResponse
+  rpc updateEmployee(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, refId; Output: AccountBaseResponse
+  rpc getEmployeeByRefId(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, employeeId; Output: AccountBaseResponse
+  rpc getEmployeeById(AccountBaseRequest) returns (AccountBaseResponse){};
+  //input: Authorization, accountId, Output: AccountBaseResponse
+  rpc getProfileByAccountId(AccountBaseRequest) returns (AccountBaseResponse){};
+}

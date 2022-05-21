@@ -1,0 +1,16 @@
+build
+.idea
+.DS_Store
+com
+grpc
+*.py
+*.js
+*.java
+*.swift
+*.cs
+*.php
+.gradle
+gradle*
+*.iml
+build_install
+proto_script

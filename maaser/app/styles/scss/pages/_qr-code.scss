@@ -1,0 +1,105 @@
+.my-qr-code {
+  min-height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 50px 0;
+  .qr-inner {
+    padding: 50px 120px 30px 120px;
+    border: 2px solid #f0edf1;
+    box-sizing: border-box;
+    border-radius: 2px;
+    text-align: center;
+    width: 545px;
+  }
+  // logo
+  .masser-logo {
+    margin-bottom: 45px;
+    img {
+      width: 80px;
+    }
+  }
+
+  // qr box
+  .qr-box {
+    background-image: url('../../images/qr-frame.svg');
+    background-size: 100%;
+    padding: 36px;
+    margin-bottom: 26px;
+  }
+
+  //details
+  .details {
+    text-align: center;
+    margin-bottom: 40px;
+    .name {
+      font-size: 18px;
+      line-height: 25px;
+      color: #0bb3f3;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .email {
+      color: #333333;
+    }
+  }
+
+  //   buttons
+  .divide {
+    &:before,
+    &:after {
+      width: 43%;
+    }
+  }
+  .btn {
+    font-weight: 600;
+  }
+}
+
+// share modal
+.share-modal {
+  max-width: 395px;
+  &.share-qr {
+    .share-link {
+      &:first-child {
+        display: none;
+      }
+      &:nth-child(3) {
+        margin-right: 12%;
+      }
+      &:nth-child(4) {
+        margin-right: 0;
+      }
+    }
+  }
+  .ant-modal-header {
+    padding: 30px;
+  }
+  .links-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .share-link {
+    text-align: center;
+    width: calc(25%);
+    margin-right: 12%;
+    &:nth-child(2) {
+      margin-bottom: 38px;
+    }
+    &:nth-child(3),
+    &:last-child {
+      margin-right: 0;
+    }
+    .image {
+      height: 50px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      img {
+        width: 50px;
+      }
+    }
+  }
+}

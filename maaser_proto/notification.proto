@@ -1,0 +1,115 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "NotificationProto";
+option java_generate_equals_and_hash = true;
+
+enum EmailType{
+  UNKNOWN_EMAIL_TEMPLATE = 0;
+  WELCOME_EMAIL = 1;
+  EMAIL_VERIFICATION = 2;
+  FORGOT_PASSWORD = 3;
+  RESET_PASSWORD_CONFIRMATION = 4;
+  PHONE_VERIFICATION = 5;
+}
+
+enum RecipientType{
+  UNKNOWN_RECIPIENT = 0;
+  USER_ID = 1;
+  PUSH_TOKEN = 2;
+  TOPIC = 3;
+}
+
+enum NotificationType{
+  UNKNOWN_NOTIFICATION_TYPE = 0;
+  TRANSACTION_NOTIFICATION = 1;
+  CHARITY_EVENT_NOTIFICATION = 2;
+}
+
+enum DeliveryDeviceType{
+  ALL = 0;
+  ANDROID_ONLY = 1;
+  IOS_ONLY = 2;
+}
+
+enum NotificationRequestMode{
+  UNKNOWN_NOTIFICATION_MODE = 0;
+  SEND_SMS = 1;
+  SEND_EMAIL = 2;
+  SEND_PUSH = 3;
+  SEND_SMS_EMAIL = 4;
+  SEND_SMS_PUSH = 5;
+  SEND_EMAIL_PUSH = 6;
+  SEND_TO_ALL = 7;
+}
+
+message SmsRequest{
+  repeated string tos = 1; //Full phone number
+  string message = 2;
+  int32 pin = 3;
+  bool isPin = 4;
+  string senderUserId = 5;
+}
+
+message EmailRequest{
+  repeated string tos = 1;
+  string body = 2;
+  string subject = 3;
+  string from = 4;
+  bool template = 5;
+  bool html = 6;
+  string templateName = 7; //optional - fallback for when EmailTemplate proto is not used
+  map<string, string> templateData = 8;
+  repeated string replyToAddresses = 9;
+  EmailType emailType = 10; //optional - default set by queue processor
+  string senderUserId = 11;
+}
+
+message Recipient{
+  string to = 1; // Recipient UserId / Recipient PushToken
+  RecipientType type = 2;
+}
+
+message PushNotificationRequest{
+  repeated Recipient recipients = 1;
+  repeated string excludedPushToken = 2;
+  bool silent = 3;
+  bool persist = 4;
+  string title = 5;
+  string body = 6;
+  DeliveryDeviceType deviceType = 7;
+  string fromUserId = 8;
+  string notificationId = 9;
+  string senderPushToken = 10;
+  string payload = 11;
+  NotificationType notificationType = 12;
+  int64 timestamp = 13;
+  string avatarImage = 14;
+  string image = 15;
+  string clickAction = 16;
+  map<string, string> data = 17;
+}
+
+message NotificationRequest{
+  SmsRequest smsRequest = 1;
+  EmailRequest emailRequest = 2;
+  PushNotificationRequest pushNotificationRequest = 3;
+  NotificationRequestMode notificationRequestMode = 4;
+  string notificationRequestId = 5;
+  int64 timestamp = 6;
+}
+
+message Notification{
+  NotificationType type = 1;
+  string notificationId = 2;
+  string title = 3;
+  string body = 4;
+  string senderId = 5;
+  int64 timestamp = 6;
+  string payload = 7;
+  bool silent = 8;
+  string avatarImage = 9;
+  string image = 10;
+  string clickAction = 11;
+}

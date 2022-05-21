@@ -1,0 +1,72 @@
+.dashboard-content {
+  display: flex;
+  justify-content: space-between;
+  //   left part
+  .left-contents {
+    width: calc(65.8%);
+    padding: 27px 24px 10px 24px;
+    border: 2px solid #f0edf1;
+    border-radius: 2px;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    .top-part {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 27px;
+    }
+
+    // receivers list
+    .dashboard-card-list {
+      min-height: 60vh;
+      position: relative;
+      .card {
+        flex-direction: column;
+      }
+      .card-img {
+        height: 80px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+      }
+      .card-title {
+        height: 20px;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .client-type {
+        font-size: 15px;
+        margin-top: -6px;
+        margin-bottom: 6px;
+      }
+
+      .no-data {
+        position: absolute;
+        top: 55%;
+        left: 41%;
+        transform: translate(-50%);
+        color: #5f6062;
+      }
+    }
+  }
+
+  //   right part
+  .right-contents {
+    width: calc(32.5%);
+
+    .donations-made-received {
+      margin-bottom: 8px;
+      // only show 3 datas
+      .donation-detail {
+        &:nth-of-type(1n + 4) {
+          display: none;
+        }
+      }
+    }
+    .upcoming-donations {
+      margin-bottom: 8px;
+    }
+  }
+}

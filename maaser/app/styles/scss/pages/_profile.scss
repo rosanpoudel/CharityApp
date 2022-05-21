@@ -1,0 +1,36 @@
+.profile-conatiner {
+  margin-top: 60px;
+  .profile-inner {
+    display: flex;
+  }
+  .profile-image {
+    margin-right: 70px;
+    .pic {
+      width: 250px;
+      border-radius: 50%;
+    }
+  }
+  .edit-profile {
+    text-align: center;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      display: inline-block;
+      color: #0bb3f3;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+  }
+  .detail-row {
+    margin-bottom: 45px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .detail-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+}

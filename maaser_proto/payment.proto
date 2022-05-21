@@ -1,0 +1,202 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "PaymentProto";
+
+import "account.proto";
+import "address.proto";
+import "campaign.proto";
+import "treeleaf.proto";
+
+
+enum CardProvider {
+  UNKNOWN_PROVIDER = 0;
+  STRIPE = 1;
+  OTHER_CARD = 2;
+}
+
+enum TransactionMedium{
+  UNKNOWN_MEDIUM = 0;
+  ACH = 1;
+  CARD = 2;
+  INTERNAL_MEDIUM = 3;
+}
+
+enum  TransactionType{
+  UNKNOWN_TYPE = 0;
+  LOAD_FUND = 1;
+  DONATE_FUND = 2;
+  WITHDRAW_FUND = 3;
+  CAMPAIGN_FUND = 4;
+  SUB_CAMPAIGN_FUND = 5;
+  OTHER_TRANSACTION = 6;
+}
+
+enum TransactionStatus{
+  UNKNOWN_TRANSACTION_STATUS = 0;
+  TRANSACTION_APPROVED = 1;
+  TRANSACTION_SUBMITTED = 2;
+  TRANSACTION_POSTED = 3;
+  TRANSACTION_CANCELLED = 4;
+}
+
+message Card {
+  enum CardStatus {
+    UNKNOWN_STATUS = 0;
+    ACTIVE_CARD = 1;
+    INACTIVE_CARD = 2;
+    CANCELLED_CARD = 3;
+    BLOCKED_CARD = 4;
+  }
+  string cardId = 1;
+  string cardHolderName = 2;
+  string refId = 3;        //strip card reference id
+  string accountId = 4;
+  string cardNumber = 5;
+  int64 expiryDate = 6;
+  int32 cvc = 7;
+  CardProvider cardProvider = 8;
+  CardStatus cardStatus = 9;
+  int64 createdAt = 10;
+  int64 updatedAt = 11;
+  string cardType = 12;
+  bool isDefault = 13;
+  Address billingAddress = 14;
+}
+
+message StripeCustomer{
+  enum StripeCustomerStatus {
+    UNKNOWN_CUSTOMER = 0;
+    CUSTOMER_PENDING = 1;
+    CUSTOMER_APPROVED = 2;
+    CUSTOMER_DECLINED = 3;
+  }
+  string stripeCustomerId = 1;
+  string stripeId = 2;
+  string accountId = 3;
+  string email = 4;
+  StripeCustomerStatus stripeCustomerStatus = 5;
+  int64 createdAt = 6;
+  int64 updatedAt = 7;
+}
+
+message Bank{
+  enum BankStatus{
+    UNKNOWN_STATUS = 0;
+    ACTIVE_STATUS = 1;
+    INACTIVE_STATUS = 2;
+  }
+  string bankId = 1;
+  string clientId = 2;
+  string bankName = 3;
+  string accountHolderName = 4;
+  string accountNumber = 5;
+  string routingNumber = 6;
+  BankStatus bankStatus = 7;
+  int64 createdAt = 8;
+  int64 updatedAt = 9;
+}
+
+message Transaction{
+  string transactionId = 1;
+  string trackingId = 2;
+  int64 amount = 3;
+  string donorAccountId = 4;   
+  string receiverAccountId = 5; 
+  TransactionStatus transactionStatus = 6;
+  TransactionType transactionType = 7;
+  TransactionMedium transactionMedium = 8;
+  string refId = 9; //scheduled transaction id
+  string remark = 10;
+  string addedBy = 11;  //transaction initiator (Employee/Client AccountId)
+  string cardId =12;
+  string bankId =13;
+  string campaignId = 14;
+  int64 createdAt = 15;
+  int64 updatedAt = 16;
+  int64 transactionTimestamp = 17;
+  repeated Client client = 18;
+  Bank bank = 19;
+  Card card = 20;
+  Campaign campaign = 21;
+  SubCampaign SubCampaign = 22;
+  string donorAddress = 23;
+}
+
+message  Balance{
+  string balanceId = 1;
+  string accountId = 2;
+  int64 balanceAmount = 3;
+  int64 createdAt = 4;
+  int64 updatedAt = 5;
+}
+
+enum ScheduleTransactionStatus{
+  UNKNOWN_SCHEDULE_STATUS = 0;
+  SCHEDULING = 1;
+  DISABLED = 2;
+  CANCELLED = 3;
+}
+
+message ScheduleTransaction{
+  string scheduleTransactionId = 1;
+  int64 amount = 2;
+  ScheduleDetail scheduleDetail = 3;
+  TransactionStatus transactionStatus = 4;
+  TransactionType transactionType = 5;
+  TransactionMedium transactionMedium = 6;
+  ScheduleTransactionStatus scheduleTransactionStatus = 7;
+  string donorAccountId = 8;   
+  string receiverAccountId = 9; 
+  string remark = 10;
+  int64 createdAt = 11;
+  int64 updatedAt = 12;
+  int64 upcomingTxnDate = 13;
+  repeated Client client = 14;
+}
+
+message ScheduleDetail{
+  int64 scheduleId = 1;
+  int64 startDate = 2;
+  int64 endDate = 3;
+  string scheduledBy = 4; //scheduled transaction initiator (Employee/Client AccountId)
+  ScheduleType scheduleType = 5;
+}
+
+enum ScheduleType{
+  UNKNOWN_SCHEDULE_TYPE = 0;
+  ONE_TIME = 1;
+  DAILY = 2;
+  WEEKLY = 3;
+  MONTHLY = 4;
+  QUARTERLY = 5;
+  YEARLY = 7;
+  NTH_DAY = 8;
+}
+
+message TransactionFilter{
+  treeleaf.protos.DataQuery dataQuery = 1;
+  TransactionMedium transactionMedium = 2;
+  TransactionStatus transactionStatus = 3;
+  TransactionType transactionType = 4;
+}
+
+message CampaignDonation{
+  string refId =1;  // campaign or sub campaign id
+  Client client = 2; //donor of transaction
+  int64 amount = 3;
+  string txnId = 4; //transaction id from which donation was made
+  int64 txnDate = 5;
+}
+
+enum ExportType{
+  UNKNOWN_EXPORT_TYPE = 0;
+  PDF_EXPORT = 1;
+  EXCEL_EXPORT = 2;
+}
+
+message TransactionExportRequest{
+  ExportType exportType = 1;
+  TransactionFilter transactionFilter = 2;
+}

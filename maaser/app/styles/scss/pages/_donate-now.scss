@@ -1,0 +1,42 @@
+.donate-now-container {
+  .card {
+    min-height: auto;
+    width: 155px;
+    cursor: pointer;
+
+    .card-img {
+      margin: 0 0 15px 0;
+    }
+    .card-title {
+      margin: 0;
+    }
+  }
+}
+
+// SCHEDULE TABLE
+.start-time {
+  margin-bottom: 5px;
+  border-bottom: 1px solid #767676;
+
+  .form-label {
+    margin-bottom: 6px;
+  }
+  .ant-picker {
+    background: transparent;
+    border: none;
+    display: flex;
+    padding: 4px 0 0 0;
+
+    input {
+      &::placeholder {
+        color: transparent;
+      }
+    }
+    .anticon-clock-circle {
+      color: #0bb3f3;
+    }
+  }
+  .ant-picker-focused {
+    box-shadow: none !important;
+  }
+}

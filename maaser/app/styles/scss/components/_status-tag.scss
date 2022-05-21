@@ -1,0 +1,40 @@
+// status tag
+.status-tag {
+  border: none;
+  font-size: 13px;
+  padding: 5px 12px 2px 12px;
+  line-height: 19.07px;
+  margin-right: 0;
+  text-transform: uppercase;
+  &.ant-tag-success {
+    background: #d3fbf1;
+    color: #2cb998;
+  }
+  &.ant-tag-warning {
+    background: #ffeecf;
+    color: #fbc766;
+  }
+  &.ant-tag-error {
+    background: #ffd8d3;
+    color: #de4c3c;
+  }
+  &.ant-tag-purple {
+    background: #f1aefc;
+    color: #9b59b6;
+  }
+  &.ant-tag-blue {
+    background: #aee6fc;
+    color: #037cc4;
+  }
+
+  &.permission-tag {
+    background: #dcf5ff;
+    padding: 3px 5px;
+    color: #0bb3f3;
+    font-size: 12px;
+    text-transform: lowercase;
+    .anticon {
+      vertical-align: top;
+    }
+  }
+}

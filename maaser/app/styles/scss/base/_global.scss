@@ -1,0 +1,43 @@
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.79px;
+}
+
+img {
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h3,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ant-notification {
+  div {
+    > .ant-notification-notice {
+      display: none !important;
+      &:first-child {
+        display: block !important;
+      }
+    }
+  }
+}

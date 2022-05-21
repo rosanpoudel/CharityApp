@@ -1,0 +1,100 @@
+.donations-list {
+  position: relative;
+  border: 2px solid #f0edf1;
+  padding: 20px 30px 55px 30px;
+  min-height: 270px;
+  box-sizing: border-box;
+  .primary-title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .recent {
+    font-size: 15px;
+    line-height: 20.53px;
+    color: #5f6062;
+    font-weight: 400;
+    margin-bottom: 3px;
+  }
+
+  .view-all {
+    text-align: right;
+    color: #0bb3f3;
+    margin-top: 12px;
+    font-weight: 400;
+    line-height: 20.43px;
+    position: absolute;
+    right: 30px;
+    bottom: 13px;
+    cursor: pointer;
+  }
+  .no-data {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.donation-detail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px 15px 0;
+  border-bottom: 1px solid #f0edf1;
+
+  .client-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  .name {
+    font-size: 16px;
+    color: $black;
+    line-height: 21.79px;
+    text-transform: capitalize;
+    max-width: 180px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .camp-title {
+    font-size: 15px;
+    margin-top: -10px;
+  }
+
+  .date {
+    color: #5f6062;
+    font-size: 14px;
+    line-height: 20.43px;
+    font-weight: 400;
+  }
+
+  .amount {
+    color: #333333;
+    justify-self: flex-end;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+  }
+}
+
+// transactions made
+.detail-row {
+  &.with-status-tag {
+    .donation-detail {
+      width: 100%;
+      max-width: 100% !important;
+      .amount {
+        right: 50%;
+      }
+    }
+    .status-tag {
+      position: absolute;
+      right: 20%;
+    }
+  }
+}

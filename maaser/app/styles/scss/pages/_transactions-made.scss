@@ -1,0 +1,62 @@
+.transactions-made-page {
+  .transactions-made-table {
+    .detail-row {
+      .client-img {
+        border-radius: 0;
+        object-fit: initial;
+      }
+    }
+  }
+}
+
+// transactions list
+.transactions-made-table {
+  &.withdraws-table {
+    .detail-row {
+      .client-img {
+        border-radius: 0;
+      }
+    }
+  }
+  margin-top: 20px;
+
+  // date group
+  .date-group {
+    // upcoming,donations made
+    &.all-page-group {
+      .detail-row {
+        .client-img {
+          width: 40px;
+        }
+      }
+    }
+    .date-title {
+      margin: 20px 0 5px 0;
+      color: #5f6062;
+    }
+    .detail-row {
+      border-bottom: 1px solid #d2d2d2;
+      display: block;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .donation-detail {
+        max-width: 580px;
+        border-bottom: none;
+      }
+      .client-img {
+        width: 30px;
+      }
+      .name {
+        max-width: 100%;
+        overflow: visible;
+        margin-bottom: 8px;
+      }
+      .amount {
+        color: #333333;
+      }
+    }
+  }
+}

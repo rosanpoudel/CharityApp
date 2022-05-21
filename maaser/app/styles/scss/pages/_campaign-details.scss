@@ -1,0 +1,374 @@
+.campaign-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  // LEFT CONTENTS
+  .left-contents {
+    width: calc(65.8%);
+    // top row
+    .top-part {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 35px;
+      .title-part {
+        .campaign-title {
+          font-size: 32px;
+          line-height: 20px;
+          letter-spacing: 0.2px;
+          color: #3b414b;
+          font-weight: 600;
+          margin-bottom: 20px;
+          text-transform: capitalize;
+        }
+        p {
+          font-size: 28px;
+          color: #3b414b;
+          font-weight: 600;
+          img {
+            margin-right: 15px;
+          }
+        }
+      }
+
+      .btn {
+        width: 181px;
+        height: 32px;
+        text-transform: none;
+        font-size: 14px;
+      }
+    }
+
+    // campaign thumbnail
+    .thumbnail-image {
+      img {
+        max-height: 400px;
+      }
+    }
+
+    //   main detail contents
+    .main-detail-contents {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      padding-bottom: 30px;
+      margin-bottom: 57px;
+      .details-top {
+        padding: 0 25px;
+      }
+    }
+
+    //   small card row
+    .small-card-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 25px;
+      border-bottom: 1px solid #f0edf1;
+    }
+
+    //   from to
+    .from-to {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      .mid {
+        margin: 0 45px;
+      }
+      .small-card {
+        align-items: flex-start;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+        }
+        h4 {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    //   tabs
+    .tab-contents {
+      padding: 0 25px;
+      min-height: 30vh;
+    }
+
+    //   COMMENTS
+    .comments-contents {
+      padding: 0 45px 0 35px;
+    }
+    //   comment form
+    .comment-form {
+      background: #f0fbff;
+      border-radius: 20px;
+      padding: 10px 25px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      input {
+        background: transparent;
+        color: #5f6062;
+        width: 80%;
+        &::placeholder {
+          font-size: 15px;
+        }
+      }
+      button {
+        background: transparent;
+        font-size: 15px;
+        color: #0bb3f3;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+    // comments
+    .comments {
+      min-height: 25vh;
+      position: relative;
+      .empty-table {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%);
+      }
+      .comment-row {
+        position: relative;
+        border-bottom: 1px solid #f0edf1;
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .small-card {
+          align-items: flex-start;
+          padding: 11px 0 15px 0;
+
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+          }
+          h4 {
+            margin-bottom: 10px;
+            .comment-date {
+              display: inline-block;
+              font-size: 13px;
+              color: #5f6062;
+              font-weight: 400;
+              margin-left: 20px;
+            }
+          }
+        }
+
+        // comments update
+        .comments-actions {
+          position: absolute;
+          right: 0;
+          top: 40%;
+          .table-dropdown {
+            padding-left: 10px;
+          }
+          .dropdown {
+            width: 100px;
+            padding-top: 2px;
+            right: 17px;
+            .dropdown-link {
+              border-radius: 0;
+              padding: 4px 10px;
+            }
+          }
+        }
+      }
+    }
+
+    //   SUB CAMPAIGNS
+    .sub-campaigns {
+      .small-card {
+        align-items: flex-start;
+        border-bottom: 1px solid #f0edf1;
+        padding-bottom: 23px;
+        margin-bottom: 23px;
+        &:hover {
+          h4 {
+            color: $primary;
+          }
+        }
+        img {
+          width: 40px;
+          margin-right: 23px;
+        }
+        h4 {
+          font-size: 16px;
+          color: #333333;
+        }
+        p {
+          font-size: 13px;
+          span {
+            color: #0bb3f3;
+            font-weight: 600;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  // RIGHT CONTENTS
+  .right-contents {
+    width: calc(32.5%);
+    margin-top: 35px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    // amount details
+    .amount-details {
+      padding: 30px 22px 0 22px;
+      margin-bottom: 40px;
+      position: relative;
+      .generate-qr {
+        position: absolute;
+        right: 20px;
+        top: 45px;
+        color: #0bb3f3;
+        font-weight: 600;
+        &:hover {
+          color: $primary;
+        }
+      }
+      .amount-hilighted {
+        font-size: 36px;
+        line-height: 1;
+        color: #0bb3f3;
+        font-weight: 600;
+        margin-bottom: 8px;
+        max-width: 60%;
+      }
+      .shared {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 30px;
+
+        p {
+          margin-right: 40px;
+          cursor: pointer;
+          &:hover {
+            strong,
+            span {
+              color: $primary;
+            }
+          }
+          strong,
+          span {
+            display: block;
+          }
+          strong {
+            font-size: 15px;
+          }
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    // tabs
+    .top-recent-tabs {
+      .ant-tabs-nav-operations {
+        display: none;
+      }
+      .ant-tabs-tab {
+        width: 181px;
+        min-width: auto;
+      }
+      .tab-contents {
+        position: relative;
+        padding: 0 22px 20px 22px;
+        min-height: 40vh;
+        .no-data {
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%);
+        }
+        .donation-detail {
+          &:first-child {
+            margin-top: -15px;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// add sub campaign form
+.add-sub-campaign-form {
+  .total-goal {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 40px;
+    color: #0bb3f3;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+// all donors
+.all-donors-popup {
+  .ant-modal-header {
+    padding-bottom: 20px;
+  }
+  .tab-contents {
+    padding-right: 20px;
+    height: 300px;
+    overflow-y: auto;
+    @extend %table-scroll;
+  }
+}
+
+// edit comment
+.edit-comment-form {
+  .ant-modal-header {
+    padding-bottom: 20px;
+  }
+  .form-label {
+    display: block;
+  }
+  textarea {
+    display: block;
+    width: 100%;
+    height: 125px;
+    padding: 5px 10px;
+    outline: none;
+    &:focus {
+      border-color: $primary;
+    }
+  }
+}
+
+// edit campaign
+.edit-campaign-modal {
+}
+
+// campaign/subcampaign edit icon
+.with-edit-icon {
+  position: relative;
+  padding-right: 25px;
+  &.title-part {
+    padding-right: 40px;
+  }
+  &.image-video {
+    padding-right: 0;
+    .edit-icon {
+      right: 10px;
+      top: 5px;
+    }
+  }
+  .edit-icon {
+    position: absolute;
+    right: 0;
+    top: -2px;
+    cursor: pointer;
+    img {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "EventsProto";
+option java_generate_equals_and_hash = true;
+
+import "treeleaf.proto";
+
+enum EventType {
+  UNKNOWN_EVENT_TYPE = 0;
+  NOTIFY = 1;
+  QUEUE = 2;
+}
+
+//Generic Event object
+message Event {
+  EventType type = 1;
+  bool immediate = 2;
+  //All general payload.
+  bytes payload = 3;
+  //Used on reliable queue
+  int64 timestamp = 4;
+  string eventId = 5;
+  treeleaf.protos.Debug debug = 6;
+  string eventGeneratedHost = 7; //Ex: prod1-txn
+  string emitter = 8;
+}

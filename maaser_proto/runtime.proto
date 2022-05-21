@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.treeleaf.runtime;
+option java_outer_classname = "RuntimeStatProto";
+
+message RuntimeTimeStatRequest {
+  string service = 1;
+}
+
+message RuntimeTimeStat{
+  int64 totalMem = 1;
+  int64 usedMem = 2;
+  int64 freeMem = 3;
+  int64 maxMem = 4;
+  int32 cpuCount = 5;
+  int64 uptime = 6;
+  int64 loadedClassCount = 7;
+  int64 totalLoadedClassCount = 8;
+  int64 unLoadedClassCount = 9;
+  int64 totalCompilationTime = 10;
+  string name = 11; //Name of JVM
+  string vendor = 12;
+  string version = 13;
+  int64 threadCount = 14;
+  int64 daemonThreadCount = 15;
+  int64 totalStartedThreadCount = 16;
+  string inputArguments = 17;
+}
+
+service RuntimeRpc {
+  rpc runtimeStat(RuntimeTimeStatRequest) returns (RuntimeTimeStat);
+}

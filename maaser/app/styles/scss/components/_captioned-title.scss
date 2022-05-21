@@ -1,0 +1,15 @@
+.captioned-title {
+  text-align: center;
+  .title {
+    font-size: 22px;
+    color: $black;
+    margin: 0 0 5px 0;
+    text-transform: capitalize;
+    line-height: 1;
+  }
+  .caption {
+    font-size: 16px;
+    color: $caption;
+    line-height: 22px;
+  }
+}

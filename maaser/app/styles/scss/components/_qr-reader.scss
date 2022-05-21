@@ -1,0 +1,26 @@
+.qr-scanner-modal {
+  .qr-scanner {
+    .qr-reader-webcam {
+      section {
+        div {
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+  .ant-modal-content {
+    background: transparent;
+    box-shadow: none;
+    .ant-modal-close-x {
+      svg {
+        path {
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+  .ant-modal-close {
+    top: -6px;
+    right: -44px;
+  }
+}

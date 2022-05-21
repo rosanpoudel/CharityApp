@@ -1,0 +1,88 @@
+/* background with hands */
+.bg-hands {
+  position: relative;
+  width: 100%;
+  // min-height: 722px;
+  min-height: 100vh;
+  padding: 50px 0;
+  box-sizing: border-box;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  &.bg-hand-1 {
+    background-image: url('../../images/bg-hand-1.png');
+  }
+  &.bg-hand-2 {
+    background-image: url('../../images/bg-hand-2.png');
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(36, 36, 36, 0.41);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+/* white form wrap */
+.white-bg-wrap {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  max-width: 95%;
+  padding: 20px;
+  @include mq('phone') {
+    max-width: 360px;
+  }
+
+  @include mq('tablet') {
+    max-width: 508px;
+    padding: 40px;
+  }
+}
+
+/* OR */
+.divide {
+  display: table;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  color: #0bb3f3;
+  font-size: 16px;
+  margin: 18px 0;
+  &:before,
+  &:after {
+    border-top: 1px solid #767676;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 11px;
+    width: 45%;
+  }
+}
+
+/* redirect */
+.redirect {
+  display: flex;
+  align-items: center;
+  color: #767676;
+  margin-top: 16px;
+  .redirect-link {
+    color: #0aa9eb;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+// form title
+.form-title {
+  margin-bottom: 40px;
+}

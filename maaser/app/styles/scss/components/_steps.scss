@@ -1,0 +1,22 @@
+.campaign-steps {
+  .ant-steps-item {
+    pointer-events: none;
+  }
+  .ant-steps-item-process {
+    .ant-steps-item-icon {
+      background: linear-gradient(180deg, #0bb3f3 0%, #037cc4 100%);
+    }
+  }
+  .ant-steps-item-finish {
+    .ant-steps-item-icon {
+      background: linear-gradient(180deg, #0bb3f3 0%, #037cc4 100%);
+      &:hover {
+        color: #d7d7d7;
+      }
+      & > .ant-steps-icon {
+        color: #ffffff;
+        top: -4.5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.profile-box {
+  padding: 50px 5%;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(100.62deg, #037cc4 0%, #0bb3f3 98.83%);
+  border-radius: 2px;
+  //   left
+  .left {
+    display: flex;
+    margin-right: 3%;
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 100%;
+      margin-right: 10px;
+    }
+    .greetings {
+      margin-top: 10px;
+      .name {
+        font-size: 18px;
+        color: #ffffff;
+        line-height: 25px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        // width: 100px;
+        // text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .btn-load {
+        display: block;
+        color: #0bb3f3;
+        background: #ffffff;
+        border-radius: 2px;
+        line-height: 19.07px;
+        padding: 6px 10px;
+        font-weight: 600;
+        transition: 0.5s;
+        max-width: 105px;
+        text-align: center;
+        &:hover {
+          box-shadow: inset 0 0 10px 1px #0aa9eb;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+
+  //   right
+  .right {
+    color: #ffffff;
+    margin-top: 15px;
+    .balance {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .amount {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+    }
+  }
+}

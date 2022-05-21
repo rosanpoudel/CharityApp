@@ -1,0 +1,50 @@
+.campaign-card.full-link {
+  z-index: 999;
+  &:hover {
+    .contents {
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+      transition: 0.5s;
+    }
+  }
+  .contents {
+    transition: 0.5s;
+    &:hover {
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+      transition: 0.5s;
+    }
+  }
+}
+
+.campaign-slider {
+  .slick-slide {
+    margin: 5px;
+    width: 284.2px;
+    pointer-events: auto !important;
+    transition: 1s;
+  }
+  .slick-dots {
+    bottom: -5px;
+    li {
+      width: auto;
+      button {
+        transition: 1.5s;
+        border: 1px solid $primary;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        opacity: 0.6;
+      }
+      &.slick-active {
+        width: auto;
+        button {
+          transition: 1.5s;
+          background: $primary;
+          opacity: 1;
+          width: 10px;
+          height: 10px;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}

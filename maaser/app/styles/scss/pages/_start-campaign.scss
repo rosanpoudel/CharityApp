@@ -1,0 +1,129 @@
+.start-campaign-wrapper {
+  //   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inner {
+    width: 550px;
+    padding: 40px 60px;
+    border: 2px solid #f0edf1;
+    border-radius: 2px;
+    margin-bottom: 100px;
+  }
+  .form-title {
+    font-size: 18px;
+    line-height: 25px;
+    color: #0bb3f3;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.step-title {
+  margin: 15px 0;
+  color: #5f6062;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+
+// goal amount
+.goal-amount {
+  background: #e9f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0 4px 60%;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  color: #0db952;
+  font-weight: 600;
+  margin-bottom: 25px;
+  line-height: 1;
+  span {
+    width: auto;
+  }
+
+  .goal-amount-input {
+    display: inline-block;
+    font-size: 26px;
+    color: #0db952;
+    font-weight: 600;
+    background: transparent;
+    margin-left: 8px;
+    width: auto;
+  }
+}
+
+// step contents
+.step-contents {
+  .proceed-btn {
+    border-bottom: 1px solid #f0edf1;
+    padding-bottom: 15px;
+  }
+  .go-back {
+    font-size: 15px;
+    color: #0bb3f3;
+    margin-top: 20px;
+    cursor: pointer;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .c-form {
+    .form-row {
+      margin-bottom: 25px;
+    }
+    .form-label {
+      text-transform: none;
+    }
+  }
+}
+
+// step 2
+.image-video-uploader {
+  border: 2px dashed #767676;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .image-label {
+    display: block;
+    text-align: center;
+    p {
+      font-size: 14px;
+      color: #5f6062;
+      margin-top: 18px;
+    }
+  }
+  .image-input {
+    display: none;
+  }
+}
+
+.uploaded-image {
+  .thumbnail-image {
+    img {
+      height: 225px;
+    }
+  }
+}
+
+// step 1
+.add-user {
+  cursor: pointer;
+  // display: none;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+  }
+  .anticon-plus {
+    margin-right: 5px;
+  }
+}

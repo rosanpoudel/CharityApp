@@ -1,0 +1,116 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "AchProto";
+option java_generate_equals_and_hash = true;
+
+enum AchStatus{
+  UNKNOWN_ACH_STATUS = 0;
+  ACH_PENDING = 1;
+  ACH_SUBMITTED = 2;
+  ACH_RETURNED = 3;
+}
+
+message AchData{
+  FileHeaderRecord fileHeaderRecord = 1;
+  repeated BatchHeaderRecord batchHeaderRecord = 2;
+  repeated PPDEntryDetailRecord ppdEntryDetailRecord = 3;
+  FileReturnRecord fileReturnRecord = 4;
+  BatchControlRecord batchControlRecord = 5;
+  FileControlRecord fileControlRecord = 6;
+}
+
+message FileHeaderRecord{
+  string recordTypeCode = 1;
+  string PriorityCode = 2;
+  string immediateDestination = 3;
+  string immediateOrigin = 4;
+  string fileCreationDate = 5;
+  string fileCreationTime = 6;
+  string fileIdModifier = 7;
+  string recordSize = 8;
+  string blockingFactor = 9;
+  string formatCode = 10;
+  string immediateDestinationName = 11;
+  string immediateOriginName = 12;
+  string referenceCode = 13;
+}
+
+message BatchHeaderRecord{
+  string recordTypeCode = 1;
+  string serviceCode = 2;
+  string companyName = 3;
+  string companyDiscretionaryData = 4;
+  string companyIdentification = 5;
+  string standardEntryClassCode = 6;
+  string companyEntryDescription = 7;
+  string companyDescriptiveDate = 8;
+  string effectiveEntryDate = 9;
+  string settlementDate = 10;
+  string originatorStatusCode = 11;
+  string odfiIdentification = 12;
+  string batchNumber = 13;
+}
+
+message PPDEntryDetailRecord{
+  string recordTypeCode = 1;
+  string transactionCode = 2;
+  string rdfiIdentification = 3;
+  string checkDigit = 4;
+  string dfiAccountNumber = 5;
+  string amount = 6;
+  string individualIdentificationNumber = 7;
+  string individualName = 8;
+  string discretionaryData = 9;
+  string addendaRecordIndicator = 10;
+  string traceNumber = 11;
+}
+
+message BatchControlRecord{
+  string recordTypeCode = 1;
+  string serviceCode = 2;
+  string entryCount = 3;
+  string entryHash = 4;
+  string totalDebitEntryDollarAmount = 5;
+  string totalCreditEntryDollarAmount = 6;
+  string companyIdentification = 7;
+  string messageAuthenticationCode = 8;
+  string reserved = 9;
+  string odfiIdentification = 10;
+  string batchNumber = 11;
+}
+
+message FileControlRecord{
+  string recordTypeCode = 1;
+  string batchCount = 2;
+  string blockCount = 3;
+  string entryCount = 4;
+  string entryHash = 5;
+  string totalDebitEntryDollarAmountInFile = 6;
+  string totalCreditEntryDollarAmountInFile = 7;
+  string reserved = 8;
+}
+
+message FileReturnRecord{
+  string recordTypeCode = 1;
+  string addendaTypeCode = 2;
+  string returnReasonCode = 3;
+  string originalEntryTrace = 4;
+  string reserved = 5;
+  string originalRdfiId = 6;
+  string addendaInfo = 7;
+  string traceNumber = 8;
+}
+
+message AchLog{
+  int64 logId = 1;
+  string transactionId = 2;
+  string filePath = 3;
+  AchStatus achStatus = 4;
+  string returnCode = 5;
+  int64 createdAt = 6;
+  int64 updatedAt = 7;
+}
+
+

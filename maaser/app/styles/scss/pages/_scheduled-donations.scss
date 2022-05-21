@@ -1,0 +1,72 @@
+// schedule table
+.schedule-table {
+  .ant-table-thead {
+    .ant-table-cell {
+      padding-top: 0;
+    }
+    .receivers-name {
+      width: 160px;
+    }
+    .amount {
+      width: 120px;
+    }
+    .schedule-type {
+      width: 120px;
+    }
+    .start-date {
+      width: 210px;
+    }
+    .end-date {
+      width: 125px;
+    }
+    .remarks {
+      width: 210px;
+    }
+    .status {
+      width: 200px;
+    }
+  }
+  .ant-table-tbody {
+    .ant-table-cell {
+      font-size: 15px;
+    }
+  }
+
+  .status {
+    .status-row {
+      display: flex;
+      align-items: center;
+      .tags {
+        margin-right: 35px;
+        width: calc(60%);
+      }
+
+      // for showing actions link in dropdown
+    }
+    .action-dropdown {
+      .dropdown {
+        top: 20px;
+      }
+      .dropdown-link {
+        width: 80px;
+        padding: 6px 0 6px 10px;
+      }
+    }
+  }
+}
+
+// schedule table dropdown
+.schedule-table-dropdown {
+  // for showing actions link in dropdown
+  &.has-cancel-disable {
+    .reopen {
+      display: none !important;
+    }
+  }
+  &.has-enable {
+    .cancel,
+    .disable {
+      display: none !important;
+    }
+  }
+}

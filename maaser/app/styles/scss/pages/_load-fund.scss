@@ -1,0 +1,117 @@
+.load-fund-page {
+  .empty-table {
+    top: 58%;
+  }
+}
+
+// linked account container
+.list-container {
+  position: relative;
+  min-height: 30vh;
+  padding-bottom: 20px;
+
+  .card {
+    margin-left: 3px;
+    flex-direction: row;
+    .details {
+      margin-left: 20px;
+      cursor: pointer;
+      pointer-events: all;
+      * {
+        pointer-events: none;
+      }
+    }
+    .card-title {
+      text-align: left;
+    }
+    .acc-name {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: #3b414b;
+      line-height: 20px;
+    }
+    .acc-no {
+      color: #3b414b;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .expires {
+      color: #666666;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  &.banks-list {
+    .acc-no {
+      margin: 4px 0;
+    }
+  }
+  &.cards-list {
+    .acc-name {
+      margin: 4px 0;
+    }
+  }
+}
+
+// add card modal
+.add-card-modal {
+  .expiry-date-feilds {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .form-row {
+      &.expiry-date {
+        width: calc(70%);
+      }
+      &.cvc {
+        width: calc(25%);
+      }
+    }
+  }
+}
+
+// load amount modal
+.modal-form {
+  &.load-amount {
+    .ant-modal-header {
+      padding-bottom: 25px;
+    }
+    .image-name {
+      text-align: center;
+      margin-bottom: 15px;
+      img {
+        margin-bottom: 15px;
+      }
+      p {
+        color: #3b414b;
+        line-height: 20px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+    }
+  }
+}
+
+// delete modal
+.delete-modal {
+  .ant-modal-header {
+    padding-bottom: 20px;
+  }
+  .confirm-msg {
+    color: $black;
+    margin-bottom: 26px;
+  }
+  .btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .cancel {
+      color: #0bb3f3;
+      font-size: 18px;
+      line-height: 25px;
+      cursor: pointer;
+      margin-right: 50px;
+    }
+  }
+}

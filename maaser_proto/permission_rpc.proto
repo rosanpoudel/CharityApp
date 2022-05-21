@@ -1,0 +1,56 @@
+syntax = "proto3";
+package brilltech.maaser.rpc;
+
+
+option java_package = "com.brilltech.maaser.rpc";
+option java_outer_classname = "PermissionRpcProto";
+option java_generate_equals_and_hash = true;
+
+import "permission.proto";
+import "auth.proto";
+import "treeleaf.proto";
+
+message PermissionBaseRequest {
+  string refId = 1;
+  string stringValue = 2;
+  repeated string stringValues = 3;
+  int32 intValue = 4;
+  int64 longValue = 5;
+  bool boolValue = 6;
+  bool doubleValue = 7;
+  string userId = 8;
+  brilltech.maaser.entities.Authorization authorization = 9;
+  treeleaf.protos.Debug debug = 10;
+  brilltech.maaser.entities.Permission permission = 11;
+  repeated brilltech.maaser.entities.Permission permissions = 12;
+  brilltech.maaser.entities.PermissionAssignReq permissionAssignReq = 13; 
+}
+
+message PermissionBaseResponse {
+  bool error = 1;
+  string msg = 2;
+  treeleaf.protos.ErrorCode errorCode = 3;
+  bool success = 4;
+  int64 timestamp = 5;
+  treeleaf.protos.Debug debug = 6;
+  string refId = 7;
+  brilltech.maaser.entities.Permission permission = 8;
+  repeated brilltech.maaser.entities.Permission permissions = 9;
+  brilltech.maaser.entities.PermissionAssign permissionAssign = 10;
+  repeated brilltech.maaser.entities.PermissionAssign permissionAssigns = 11;
+}
+
+service PermissionRpc {
+  //input: Authorization, Permission; Output: PermissionBaseResponse
+  rpc addPermission(PermissionBaseRequest) returns (PermissionBaseResponse){};
+  //input: Authorization; Output: PermissionBaseResponse
+  rpc getAllPermission(PermissionBaseRequest) returns (PermissionBaseResponse){};
+  //input: Authorization, userId; Output: PermissionBaseResponse
+  rpc getPermissionsByUserId(PermissionBaseRequest) returns (PermissionBaseResponse){};
+  //input: Authorization, Permission; Output: PermissionBaseResponse
+  rpc updatePermission(PermissionBaseRequest) returns (PermissionBaseResponse){};
+  //input: Authorization, permissionId; Output: PermissionBaseResponse
+  rpc deletePermission(PermissionBaseRequest) returns (PermissionBaseResponse){};
+  //input: Authorization, PermissionAssignReq; Output: PermissionBaseResponse
+  rpc assignPermission(PermissionBaseRequest) returns (PermissionBaseResponse){};
+}

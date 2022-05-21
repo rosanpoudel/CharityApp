@@ -1,0 +1,90 @@
+.members-page {
+  .top {
+    margin-bottom: 50px;
+  }
+
+  // members table
+  .members-table {
+    .ant-table-thead {
+      .sn {
+        width: 70px;
+      }
+      .name {
+        width: 275px;
+      }
+      .email {
+        width: 275px;
+      }
+      .permissions {
+        // width: 65%;
+      }
+    }
+
+    .ant-table-tbody {
+      // member name
+      .member-name {
+        display: flex;
+        align-items: center;
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 15px;
+        }
+      }
+      // permissions
+      .permission-data {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .roles {
+          width: calc(100%);
+        }
+        // switch
+        .toggler {
+          width: calc(25%);
+          .ant-switch {
+            min-width: unset;
+            width: 30px;
+            height: 18px;
+          }
+          .ant-switch-handle {
+            width: 10px;
+            height: 10px;
+            top: 4px;
+            left: 4px;
+          }
+          .ant-switch-checked .ant-switch-handle {
+            left: calc(100% - 13px - 2px);
+          }
+        }
+        // assign/dropdown
+        .assign {
+          width: calc(25%);
+        }
+      }
+    }
+  }
+}
+
+// assign dropdown
+.member-dropdown {
+  .dropdown-link {
+    padding: 10px 15px !important;
+    img {
+      margin-right: 8px;
+    }
+  }
+}
+
+// assign permission form
+.assign-permission-form {
+  .permissions-label {
+    margin-bottom: 2px;
+  }
+}
+
+// permission select
+.permission-select.ant-select {
+  background-image: url('../../images/angle-down.svg') !important;
+}

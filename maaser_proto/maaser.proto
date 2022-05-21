@@ -1,0 +1,84 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "MaaserProto";
+option java_generate_equals_and_hash = true;
+
+
+enum AccountStatus {
+  UNKNOWN_ACCOUNT_STATUS = 0;
+  ACCOUNT_PENDING = 1;
+  ACCOUNT_VERIFIED = 2;
+  ACCOUNT_SUSPENDED = 3;
+  ACCOUNT_DISABLED = 4;
+  ACCOUNT_DELETED = 5;
+}
+
+enum AccountType {
+  UNKNOWN_ACCOUNT_TYPE = 0;
+  MAASER_USER = 1;
+  DONOR_ACCOUNT = 2;
+  RECEIVER_ACCOUNT = 3;
+  EMPLOYEE_ACCOUNT = 4;
+}
+
+enum CompanyType{
+  UNKNOWN_COMPANY_TYPE = 0;
+  WHOLESALE_COMPANY = 1;
+  RETAIL_COMPANY = 2;
+  INSTALLATION_COMPANY = 3;
+}
+
+enum UserRole {
+  UNKNOWN_USER_ROLE = 0;
+  SUPER_ADMIN = 1;
+  ADMIN = 2;
+}
+
+enum AddressType {
+  UNKNOWN_ADDRESS_TYPE = 0;
+  BILLING_ADDRESS = 1;
+  SHIPPING_ADDRESS = 2;
+  HOME_ADDRESS = 3;
+  MERCHANT_ADDRESS = 4;
+  STOCK_ADDRESS = 5;
+  OPERATING_ADDRESS = 6;
+  COMPANY_ADDRESS=7;
+}
+
+enum ContactType {
+  UNKNOWN_CONTACT_TYPE = 0;
+  RELATIVE = 1;
+}
+
+enum MaritalStatus {
+  UNKNOWN_MARITAL_STATUS = 0;
+  SINGLE = 1;
+  MARRIED = 2;
+  DIVORCED = 3;
+}
+
+enum ProgressStatus {
+  UNKNOWN_STATUS = 0;
+  PENDING = 1;
+  IN_PROGRESS = 2;
+  COMPLETED = 3;
+  BLOCKED = 4;
+}
+
+enum Gender {
+  UNKNOWN_GENDER = 0;
+  MALE = 1;
+  FEMALE = 2;
+  OTHER = 3;
+}
+
+enum RequestMethod{
+  UNKNOWN_METHOD = 0;
+  GET = 1;
+  POST = 2;
+  PUT = 3;
+  PATCH = 4;
+  DELETE = 5;
+}

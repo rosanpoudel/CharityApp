@@ -1,0 +1,131 @@
+.filter-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  // date range
+  .date-range {
+    margin-right: 12px;
+  }
+
+  // filter dropdown
+  .filter-dropdown {
+    margin-right: 12px;
+  }
+}
+
+// date range
+.date-range {
+  background: #f4f4f4;
+  border-radius: 2px;
+  padding: 4px 5px 4px 8px;
+  .ant-picker {
+    position: relative;
+    background: #f4f4f4;
+    border: none;
+  }
+  .ant-picker-separator {
+    width: 10px;
+    height: 1.2px;
+    background: #5f6062;
+    margin-top: 6px;
+    svg {
+      display: none;
+    }
+  }
+
+  .ant-picker-input {
+    max-width: 75px;
+  }
+  .ant-picker-input input {
+    color: #5f6062;
+    &::placeholder {
+      color: #5f6062;
+    }
+  }
+  .ant-picker-suffix {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url('../../images/calander-grey.svg');
+    background-size: cover;
+    svg {
+      display: none;
+    }
+  }
+
+  .ant-picker-focused {
+    box-shadow: none;
+  }
+}
+
+.ant-picker-clear {
+  right: -2px !important;
+}
+
+// search bar
+.filter-search {
+  background: #f4f4f4;
+  border-radius: 2px;
+  padding: 7px 16px;
+  width: 342px;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  .search-icon {
+    width: calc(7%);
+  }
+  .search-input {
+    width: calc(93%);
+    background: transparent;
+    &::placeholder {
+      color: #b9c3cd;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+}
+// filter dropdown
+.filter-dropdown {
+  background: #f4f4f4;
+  border-radius: 2px;
+  color: #5f6062;
+  font-size: 15px;
+  padding: 3px 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  .ant-select {
+    &.ant-select-focused {
+      &:not(.ant-select-disabled).ant-select:not(.ant-select-costumize-input) {
+        .ant-select-selector {
+          box-shadow: none;
+        }
+      }
+    }
+    .ant-select-arrow {
+      background-image: url('../../images/angle-down.svg');
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 10px;
+      top: 56%;
+      svg {
+        display: none;
+      }
+    }
+    .ant-select-selector {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .ant-select-selection-item {
+      color: #5f6062;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+    option {
+      color: #5f6062;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+syntax = "proto3";
+package brilltech.maaser.entities;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "AccountProto";
+option java_generate_equals_and_hash = true;
+
+import "treeleaf.proto";
+import "maaser.proto";
+import "address.proto";
+import "contact.proto";
+import "permission.proto";
+
+enum ClientType{
+  UNKNOWN_CLIENT = 0;
+  INDIVIDUAL_CLIENT = 1;
+  ORGANIZATION_CLIENT = 2;
+}
+
+enum OrganizationType{
+  UNKNOWN_ORGANIZATION = 0;
+  PRIVATE_ORGANIZATION = 1;
+  PUBLIC_ORGANIZATION = 2;
+  OTHER_ORGANIZATION = 3;
+}
+
+message Account {
+  string accountId = 1;
+  string email = 2;
+  string phone = 3;
+  string fullName = 4;
+  string countryCode = 5;
+  string password = 6;
+  bool isDeleted = 7;
+  bool isFirstLogin = 8;
+  AccountType accountType = 9;
+  AccountStatus accountStatus = 10;
+  bool isEmailVerified = 11;
+  bool isPhoneVerified = 12;
+  bool isKycVerified = 13;
+  int64 createdAt = 14;
+  int64 updatedAt = 15;
+  treeleaf.protos.ClientDetail clientDetail = 16;
+}
+
+message User{
+  string userId = 1;
+  string profilePic = 2;
+  Gender gender = 3;
+  UserRole userRole = 4;
+  repeated Address addresses = 5;
+  repeated Contact contacts = 6;
+  Account account = 7;
+  string accountId = 8;
+}
+
+message Client{
+  string clientId = 1;
+  string profilePic = 2;
+  string bio=3;
+  ClientType clientType = 4;
+  repeated Address addresses = 5;
+  repeated Contact contacts = 6;
+  Account account = 7;
+  string accountId = 8;
+}
+
+message Employee{
+  string employeeId = 1;
+  string profilePic = 2;
+  string refId = 3;  //organization client id
+  Gender gender = 4;
+  repeated Address addresses = 5;
+  repeated Contact contacts = 6;
+  Account account = 7;
+  string accountId = 8;
+  repeated Permission permissions = 9;
+}
+
+message LoginAccount{
+  string password = 1;
+  AccountType accountType = 2;
+  User user = 3;
+  Client client = 4;
+  Employee employee = 5;
+}
+
+message UpdateAccount {
+  AccountStatus accountStatus = 1;
+  repeated string permissions = 2;
+  string refId = 3;
+  UserRole userRole = 4;
+}
+
+message PasswordChangeRequest {
+  string oldPassword = 1;
+  string newPassword = 2;
+}
+
+message PasswordReset {
+  string emailPhone = 1;
+  string newPassword = 2;
+  string accountId = 3;
+  int32 code = 4;
+}
+
+message AccountVerification {
+  string refId = 1;
+  string emailPhone = 2;
+  string firstPassword = 3;
+  string changedPassword = 4;
+  int32 code = 5;
+  int64 timestamp = 6;
+}
+
+message ClientFilter{
+  treeleaf.protos.DataQuery dataQuery = 1;
+  brilltech.maaser.entities.AccountType accountType = 2;
+}
+

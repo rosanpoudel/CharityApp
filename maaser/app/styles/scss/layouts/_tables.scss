@@ -1,0 +1,39 @@
+// table css
+.ant-table-cell {
+  font-size: 16px;
+  line-height: 21.8px;
+  box-sizing: border-box;
+}
+.ant-table-thead {
+  .ant-table-cell {
+    font-weight: 600;
+    background: transparent;
+    border-bottom: 1px solid #f0edf1;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.ant-table-tbody {
+  .ant-table-cell {
+    font-weight: 400;
+    color: #5f6062;
+    padding: 10px 16px;
+  }
+  .ant-table-row {
+    &:nth-child(10n) {
+      .ant-table-cell {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// for no data
+.ant-table-placeholder {
+  .ant-table-cell {
+    border: none !important;
+    height: 50vh;
+  }
+}

@@ -1,0 +1,39 @@
+.edit-profile-page {
+  .get-started {
+    min-height: auto;
+    padding: 0;
+    display: flex;
+    .form-row {
+      margin-bottom: 25px;
+    }
+    .form-label {
+      font-size: 15px;
+    }
+    .address-wrapper {
+      .form-row {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .profile-image {
+    margin-bottom: 0;
+    .imgWrap {
+      max-width: 100%;
+      .pic {
+      }
+      .imgLabel {
+        bottom: 0px;
+        right: 0px;
+        img {
+          width: 80px;
+        }
+      }
+    }
+  }
+}
+
+.edit-profile-page .profile-image .imgWrap .pic,
+.profile-page .profile-image .pic {
+  width: 250px;
+  height: 250px;
+}

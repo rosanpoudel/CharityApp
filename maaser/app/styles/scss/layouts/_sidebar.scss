@@ -1,0 +1,77 @@
+.sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sidebar-wrapper {
+    padding-top: 40px;
+    min-height: 100vh;
+  }
+  //   logo
+  .sidebar-logo {
+    margin-bottom: 25.4vh;
+  }
+
+  //   menus
+  .sidebar-menus {
+    &.donor-menus {
+      .withdraws {
+        display: none !important;
+      }
+    }
+    &.receiver-menus {
+      .transactions {
+        display: none !important;
+      }
+    }
+    .s-menus {
+      display: flex;
+      flex-direction: column;
+      &.individual {
+        .members {
+          display: none;
+        }
+      }
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      transform: translateX(-50%);
+      min-width: 60px;
+      font-size: 10px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .s-menu-link {
+      position: relative;
+      margin-bottom: 27px;
+      text-align: center;
+      transition: 0.5s;
+      &:hover {
+        transition: 0.5s;
+        opacity: 0.9;
+        .tooltip {
+          display: block;
+          opacity: 1;
+        }
+      }
+      .active-img {
+        display: none;
+      }
+      &.active {
+        &:hover {
+          opacity: 1;
+          cursor: default;
+        }
+        .default-img {
+          display: none;
+        }
+        .active-img {
+          display: block;
+        }
+      }
+    }
+  }
+}

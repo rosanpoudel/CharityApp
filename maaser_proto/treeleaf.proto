@@ -1,0 +1,83 @@
+syntax = "proto3";
+package treeleaf.protos;
+
+option java_package = "com.brilltech.maaser.entities";
+option java_outer_classname = "TreeleafProto";
+option java_generate_equals_and_hash = true;
+
+enum DeviceType {
+  UNKNOWN_DEVICE = 0;
+  ANDROID = 2;
+  IOS = 3;
+  WEB = 4; //Effect, Action, Condition
+  IOS_WEB = 5;
+  ANDROID_WEB = 6;
+}
+
+enum Sort {
+  ASC = 0;
+  DESC = 1;
+}
+
+message Debug {
+  string debugId = 1;
+  string userId = 2;
+  string client = 3; //Can be user agent or device id
+  string locale = 4;
+  string traceId = 5;
+  string ip = 6;
+}
+
+enum ErrorCode {
+  UNKNOWN_ERROR = 0; //Just default value for enum in proto. Should not be used as error code.
+  NPE = 4; //When any required input is null.
+  ILLEGAL = 5; //Mostly used with validation check.
+  DUPLICATE = 6; //For duplicate records.
+  FAILED = 7; //When any action fails. Like while saving record on db
+  NOTFOUND = 8; //When records are not found.
+  INVALID = 9; //For invalid inputs.
+  EXCEPTION = 10; //For any runtime exception
+  TIMEOUT = 11; //For timeouts on calling any third party services
+  AUTH_ERROR = 12; //If authorization failed
+  PERMISSION_ERROR = 13; //If user don't have permission
+}
+
+message FileObject {
+  string fileId = 1;
+  string url = 2;
+  string thumbnail = 3;
+  string extension = 4;
+  string mimeType = 5;
+  string originalName = 6;
+  string hash = 7;
+  int64 size = 8;
+  int64 timestamp = 9;
+  string refId = 10;
+}
+
+message BaseResponse {
+  bool error = 1;
+  string msg = 2;
+  ErrorCode errorCode = 3;
+  bool success = 4;
+  int64 timestamp = 5;
+  string stringValue = 6;
+  string fileUrl = 7;
+  repeated string fileUrls = 8;
+}
+
+message ClientDetail {
+  DeviceType deviceType = 1;
+  string deviceInfo = 2;
+  string deviceId = 3;
+  string ip = 4;
+}
+
+message DataQuery {
+  string searchTerm = 1;
+  int64 from = 2;
+  int64 to = 3;
+  Sort sort = 4;
+  int64 page = 5;
+  int64 offset = 6;
+}
